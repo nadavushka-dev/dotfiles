@@ -1,0 +1,49 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "space n", 
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "!editorIsOpen && !terminalFocus"
+    },
+    {
+        "key": "space f f", 
+        "command": "workbench.action.quickOpen",
+        "when": "!editorIsOpen && !terminalFocus"
+    },
+    {
+        "key": "space s f", 
+        "command": "workbench.action.openSettingsJson",
+        "when": "!editorIsOpen && !terminalFocus"
+    },
+    {
+        "key": "space k b", 
+        "command": "workbench.action.openGlobalKeybindingsFile",
+        "when": "!editorIsOpen && !terminalFocus"
+    },
+    {
+        "key": "space s c", 
+        "command": "workbench.view.scm",
+        "when": "!editorIsOpen && !terminalFocus"
+    },
+    {
+        "key": "space e x", 
+        "command": "workbench.view.explorer",
+        "when": "!editorIsOpen && !terminalFocus"
+     },
+     {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+]

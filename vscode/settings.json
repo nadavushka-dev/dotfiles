@@ -1,0 +1,65 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Atom One Dark",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.zoomLevel": 1,
+    "git.enableSmartCommit": true, 
+    "editor.minimap.enabled": false,    
+    "editor.lineNumbers": "relative",
+    "editor.cursorSurroundingLines": 8,
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {"before": ["leader", "f", "f"], "commands": ["workbench.action.quickOpen"]},
+        {"before": ["leader", "f", "d"], "commands": ["editor.action.formatDocument"]},
+        {"before": ["leader", "q", "o"], "commands": ["workbench.action.closeOtherEditors"]},
+        {"before": ["leader", "n"], "commands": ["workbench.action.toggleSidebarVisibility"]},
+        {"before": ["leader", "e", "n"], "commands": ["editor.action.marker.next"]}, 
+        {"before": ["leader", "e", "p"], "commands": ["editor.action.marker.prev"]},
+        {"before": ["leader", "g", "d"], "commands": ["editor.action.revealDefinition"]},
+        {"before": ["leader", "r", "g"], "commands": ["git.revealInExplorer"]},        
+        {"before": ["leader", "u", "s"], "commands": ["workbench.action.files.revert"]},
+        {"before": ["K"], "commands": ["editor.action.showDefinitionPreviewHover"]},
+        {"before": ["leader", "1"], "commands": ["workbench.action.openEditorAtIndex1"]},
+        {"before": ["leader", "2"], "commands": ["workbench.action.openEditorAtIndex2"]},
+        {"before": ["leader", "3"], "commands": ["workbench.action.openEditorAtIndex3"]},
+        {"before": ["leader", "4"], "commands": ["workbench.action.openEditorAtIndex4"]},
+        {"before": ["leader", ","], "commands": ["workbench.action.navigateBack"]},
+        {"before": ["leader", "."], "commands": ["workbench.action.navigateForward"]},
+        {"before": ["leader", "s", "f"], "commands": ["workbench.action.openSettingsJson"]},
+        {"before": ["leader", "k", "b"], "commands": ["workbench.action.openGlobalKeybindingsFile"]},
+        {"before": ["leader", "s", "c"], "commands": [ "workbench.view.scm"]},
+        {"before": ["leader", "e", "x"], "commands": [ "workbench.view.explorer"]},
+    ],
+    "vim.visualModeKeyBindings": [
+        {"before": ["<"], "commands": ["editor.action.outdentLines"]},
+        {"before": [">"], "commands": ["editor.action.indentLines"]},
+    ],
+    "vim.handleKeys": {
+        "<C-i>": false,
+        "<C-S-f>": false,
+    },
+    "vim.useSystemClipboard": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}
