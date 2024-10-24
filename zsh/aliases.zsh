@@ -1,5 +1,5 @@
 # custom aliasses:
-alias e=exit
+alias :q=exit
 alias v=nvim
 alias lg="lazygit"
 alias ll="ls -la -G"
