@@ -5,7 +5,11 @@ alias lg="lazygit"
 alias ll="ls -la -G"
 alias la="ls -a -G"
 alias ls="ls -G"
+
+# dir paths aliasses:
 alias nb="cd ~/code/personal"
+alias dt="cd ~/dotfiles"
+
 # git aliasses:
 alias ga='git add .'
 alias gc='git commit -m'
