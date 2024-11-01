@@ -1,7 +1,12 @@
+# custom commands:
+alias aliases="v ~/dotfiles/zsh/aliases.zsh"
+alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
+alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
+alias vconfig="v ~/dotfiles/config/nvim"
+
 # custom aliasses:
 alias :q=exit
 alias v=nvim
-alias lg="lazygit"
 alias ll="ls -la -G"
 alias la="ls -a -G"
 alias ls="ls -G"
@@ -11,6 +16,7 @@ alias nb="cd ~/code/personal"
 alias dt="cd ~/dotfiles"
 
 # git aliasses:
+alias lg="lazygit"
 alias ga='git add .'
 alias gc='git commit -m'
 alias gp='git pull'
@@ -22,6 +28,10 @@ alias gm='git merge'
 alias gl='git log --oneline'
 alias gg='git log --graph --oneline'
 
+alias fm='yazi'
+
+# scripts aliasses:
+alias cypher='~/.scripts/cypher.sh'
 
 fzfvi() {
   local fzfQ
