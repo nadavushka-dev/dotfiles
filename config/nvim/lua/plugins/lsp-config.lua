@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "html", "pyright", "pylsp", "gopls", "bashls", "jsonls", "cssls" }
+        ensure_installed = { "lua_ls", "tsserver", "html", "pyright", "pylsp", "gopls", "bashls", "jsonls", "cssls", "taplo" }
       })
     end
   },
@@ -67,6 +67,10 @@ return {
       })
 
       lspconfig.cssls.setup({
+        capabilities = capabilities
+      })
+
+      lspconfig.taplo.setup({
         capabilities = capabilities
       })
 
