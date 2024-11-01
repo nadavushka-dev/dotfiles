@@ -9,4 +9,5 @@ source_if_exists () {
 source_if_exists $DOTFILES/zsh/aliases.zsh
 source_if_exists $DOTFILES/zsh/prompt.zsh
 source_if_exists $DOTFILES/zsh/profile.zsh
+source_if_exists $DOTFILES/zsh/options.zsh
 source_if_exists $DOTFILES/zsh/env.zsh

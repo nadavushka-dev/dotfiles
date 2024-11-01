@@ -18,4 +18,3 @@ export NVM_DIR=~/.nvm
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 source $(brew --prefix nvm)/nvm.sh
-
