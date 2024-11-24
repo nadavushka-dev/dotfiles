@@ -1,15 +1,20 @@
+# custom aliasses:
+alias :q=exit
+alias v=nvim
+alias rss=newsboat
+  
 # custom commands:
 alias aliases="v ~/dotfiles/zsh/aliases.zsh"
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
 alias vconfig="v ~/dotfiles/config/nvim"
+alias qute="open -a qutebrowser"
 
-# custom aliasses:
-alias :q=exit
-alias v=nvim
-alias ll="ls -la -G"
-alias la="ls -a -G"
-alias ls="ls -G"
+# eza aliasses:
+alias ls="eza --icons"
+alias ll="eza -la --icons"
+alias la="eza -a --icons"
+alias ls1="eza --icons --oneline"
 
 # dir paths aliasses:
 alias nb="cd ~/code/personal"
@@ -32,6 +37,7 @@ alias fm='yazi'
 
 # scripts aliasses:
 alias cypher='~/.scripts/cypher.sh'
+alias work="~/.scripts/work-programs.sh"
 
 fzfvi() {
   local fzfQ
