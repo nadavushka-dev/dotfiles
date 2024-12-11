@@ -7,7 +7,7 @@ alias rss=newsboat
 alias aliases="v ~/dotfiles/zsh/aliases.zsh"
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
-alias vconfig="v ~/dotfiles/config/nvim"
+alias vconf="v ~/dotfiles/config/nvim"
 alias qute="open -a qutebrowser"
 
 # eza aliasses:
