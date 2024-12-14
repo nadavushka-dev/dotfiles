@@ -12,10 +12,10 @@ if TYPE_CHECKING:
 config.load_autoconfig()
 
 # Color scheme
-catppuccin.setup(c, 'mocha', True)
+# catppuccin.setup(c, 'mocha', True)
 
 # Dark mode
-config.set("colors.webpage.darkmode.enabled", False)
+config.set("colors.webpage.darkmode.enabled", True)
 
 # Cookies
 config.set('content.cookies.accept', 'all', 'devtools://*')
@@ -93,6 +93,8 @@ config.bind('<space>1', "tab-select 1")
 config.bind('<space>2', "tab-select 2")
 config.bind('<space>3', "tab-select 3")
 config.bind('<space>4', "tab-select 4")
+config.bind('<space>5', "tab-select 5")
+config.bind('<space>6', "tab-select 6")
 config.bind("<Cmd+Ctrl+F>", "fullscreen")
 config.bind("<f12>", "devtools")
 config.bind("<Ctrl-e>", "fake-key <Alt-Right>", "insert")
