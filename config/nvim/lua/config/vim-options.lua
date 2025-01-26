@@ -8,9 +8,10 @@ vim.opt.showcmd = true
 vim.opt.scrolloff = 8
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 0
+vim.opt.mouse = ''
 
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
