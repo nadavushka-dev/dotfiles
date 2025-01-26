@@ -12,6 +12,7 @@ return {
     scroll = { enabled = true },
     lazygit = { enabled = true },
     statuscolumn = { enabled = true },
+    terminal = { enabled = true, size = 0.9 },
     words = { enabled = false },
     animate = { enabled = false },
     toggle = { enabled = false },
@@ -25,7 +26,7 @@ return {
     { "<leader>z",   function() Snacks.zen() end,                   desc = "Toggle Zen Mode" },
     { "<leader>.",   function() Snacks.scratch() end,               desc = "Toggle Scratch Buffer" },
     { "<leader>cR",  function() Snacks.rename.rename_file() end,    desc = "Rename File" },
-    { "<c-§>",       function() Snacks.terminal() end,              desc = "Toggle Terminal" },
+    { "<c-`>",       function() Snacks.terminal.open() end,              desc = "Toggle Terminal" },
     { "<leader>un",  function() Snacks.notifier.hide() end,         desc = "Dismiss All Notifications" },
   },
 }
