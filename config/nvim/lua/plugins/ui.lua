@@ -49,24 +49,6 @@ return {
     },
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      cmdline = {
-        enabled = true
-      },
-      messages = {
-        enabled = false
-      },
-      notify = {
-        enabled = false
-      }
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    }
-  },
-  {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
