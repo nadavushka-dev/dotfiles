@@ -14,7 +14,6 @@ return {
 				null_ls.builtins.completion.spell,
 				require("none-ls.diagnostics.eslint"),
 			})
-			vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format, {})
 		end
 	}
 }
