@@ -9,19 +9,21 @@ alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
 alias vconf="v ~/dotfiles/config/nvim"
 alias qute="open -a qutebrowser"
+alias wttr="curl -s wttr.in/Tel%20Aviv"
 
 # eza aliasses:
 alias ls="eza --icons"
 alias ll="eza -la --icons"
 alias la="eza -a --icons"
 alias ls1="eza --icons --oneline"
+alias cat="bat"
 
 # dir paths aliasses:
 alias nb="cd ~/code/personal"
 alias dt="cd ~/dotfiles"
 
 # git aliasses:
-alias lg="lazygit"
+alias sc="lazygit"
 alias ga='git add .'
 alias gc='git commit -m'
 alias gp='git pull'
@@ -33,10 +35,9 @@ alias gm='git merge'
 alias gl='git log --oneline'
 alias gg='git log --graph --oneline'
 
-alias fm='yazi'
+alias fm=y
 
 # scripts aliasses:
-alias cypher='~/.scripts/cypher.sh'
 alias work="~/.scripts/work-programs.sh"
 
 fzfvi() {
@@ -64,3 +65,11 @@ fzfvi() {
 # Create an alias for the function
 alias ff="fzfvi"
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
