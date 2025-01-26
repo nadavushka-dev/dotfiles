@@ -3,6 +3,32 @@ local function last_exec_command()
   return (foo ~= nil and foo ~= '') and string.format(':%s', foo) or ''
 end
 
+
+-- kirby belongs to:   https://github.com/rachartier/dotfiles/blob/main/.config%2Fnvim%2Flua%2Fplugins%2Fui%2Flualine.lua#L159
+local kirby_default = "(>*-*)>"
+local mode_kirby = {
+  n = "<(•ᴗ•)>",
+  i = "<(•o•)>",
+  v = "(v•-•)v",
+  [""] = "(v•-•)>",
+  V = "(>•-•)>",
+  c = kirby_default,
+  no = "<(•ᴗ•)>",
+  s = kirby_default,
+  S = kirby_default,
+  [""] = kirby_default,
+  ic = kirby_default,
+  R = kirby_default,
+  Rv = kirby_default,
+  cv = "<(•ᴗ•)>",
+  ce = "<(•ᴗ•)>",
+  r = kirby_default,
+  rm = kirby_default,
+  ["r?"] = kirby_default,
+  ["!"] = "<(•ᴗ•)>",
+  t = "<(•ᴗ•)>",
+}
+
 return {
   {
     "catppuccin/nvim",
@@ -63,7 +89,17 @@ return {
         }
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+          {
+            "mode",
+            -- icons_enabled = true,
+            fmt = function()
+              return mode_kirby[vim.fn.mode()] or vim.api.nvim_get_mode().mode
+            end,
+            separator = { right = "" },
+            padding = { left = 1, right = 0 },
+          },
+        },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = { last_exec_command },
