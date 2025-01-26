@@ -13,3 +13,6 @@ source_if_exists $DOTFILES/zsh/options.zsh
 source_if_exists $DOTFILES/zsh/env.zsh
 
 . "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/Users/Nadavushka/.bun/_bun" ] && source "/Users/Nadavushka/.bun/_bun"
