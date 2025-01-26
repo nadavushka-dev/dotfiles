@@ -20,6 +20,7 @@ return {
         bashls = {
           filetypes = { "sh", "zsh" },
         },
+        yamlls = { "yml" }
       },
       diagnostics = {
         update_in_insert = true,
@@ -84,6 +85,7 @@ return {
       vim.keymap.set("n", "<leader>en", vim.diagnostic.goto_next)
       vim.keymap.set("n", "<leader>ep", vim.diagnostic.goto_prev)
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+      vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format, {})
 
       vim.diagnostic.config({
         virtual_text = false
@@ -95,4 +97,3 @@ return {
     end
   }
 }
-
