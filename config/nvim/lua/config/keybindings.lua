@@ -8,6 +8,10 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 
+-- Split window
+vim.keymap.set("n", "<leader>sh", ":sp | enew<CR>")
+vim.keymap.set("n", "<leader>sv", ":vsp | enew<CR>")
+
 -- Disable arrow keys
 vim.api.nvim_set_keymap('n', '<Up>', '', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Down>', '', { noremap = true, silent = true })
