@@ -1,7 +1,7 @@
 return {
-  'nvim-treesitter/nvim-treesitter', 
+  'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  config = function () 
+  config = function()
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
@@ -18,9 +18,9 @@ return {
         "json"
       },
 
-      sync_install = false,
       highlight = { enable = true },
+      sync_install = false,
       indent = { enable = true },
-  })
+    })
   end
 }
