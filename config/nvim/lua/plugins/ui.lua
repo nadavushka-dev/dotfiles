@@ -31,11 +31,12 @@ local mode_kirby = {
 
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1,
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
     config = function()
-      vim.cmd.colorscheme "catppuccin"
+      vim.cmd.colorscheme "tokyonight"
     end
   },
   {
@@ -53,7 +54,7 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'tokyonight',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
