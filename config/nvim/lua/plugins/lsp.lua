@@ -39,8 +39,13 @@ return {
       lsp.cssls.setup { capabilities = capabilities }
       lsp.jsonls.setup { capabilities = capabilities }
       lsp.bashls.setup { capabilities = capabilities }
-      lsp.gopls.setup { capabilities = capabilities }
 
+      vim.diagnostic.config({
+        virtual_text = {
+          spacing = 2,
+          wrap = true,
+        }
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>grr", vim.lsp.buf.definition, {})
@@ -52,10 +57,6 @@ return {
       vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format, {})
       -- vim.keymap.set('n', '<leader>i', cmp.show, {})
 
-      -- vim.diagnostic.config({
-      --   virtual_text = false
-      -- })
-      --
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
