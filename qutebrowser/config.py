@@ -66,14 +66,16 @@ config.set('content.local_content_can_access_file_urls', False,
 # c.url.start_pages = ["https://www.google.com/"]
 c.url.start_pages = ["https://www.reddit.com/?feed=home"]
 c.url.searchengines = {
-    "DEFAULT": "https://www.google.com/search?q={}",
+    "DEFAULT": "https://www.duckduckgo.com/search?q={}",
     "yt": "https://www.youtube.com/search?q={}"
 }
 c.tabs.show = "multiple"
 
 # Always restore open sites when qutebrowser is reopened
-c.auto_save.interval = 15000
-c.auto_save.session = True
+# c.auto_save.interval = 15000
+# c.auto_save.session = True
+c.session.lazy_restore = False
+
 
 config.set("content.autoplay", False)
 
@@ -115,3 +117,12 @@ config.unbind("=")
 config.bind("z+", "zoom-in")
 config.bind("z-", "zoom-out")
 config.bind("zz", "zoom")
+
+# Open current page in mpv
+config.bind(',m', 'spawn mpv {url}')
+
+# Use hints to select links to open in mpv
+config.bind(',M', 'hint links spawn mpv {hint-url}')
+
+# Rapid hints for multiple links
+config.bind(';M', 'hint --rapid links spawn mpv {hint-url}')

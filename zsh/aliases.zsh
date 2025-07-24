@@ -1,7 +1,6 @@
 # custom aliasses:
 alias :q=exit
 alias v=nvim
-alias rss=newsboat
 
 # brew
 alias up="brew update&&brew upgrade"
@@ -11,7 +10,7 @@ alias aliases="v ~/dotfiles/zsh/aliases.zsh"
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
 alias vconf="v ~/dotfiles/config/nvim"
-alias qute="open -a qutebrowser"
+alias qt="open -a qutebrowser"
 alias wttr="curl -s wttr.in/Tel%20Aviv"
 
 # eza aliasses:
