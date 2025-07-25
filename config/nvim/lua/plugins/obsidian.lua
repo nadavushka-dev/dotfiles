@@ -1,7 +1,7 @@
 return {
   {
     "epwalsh/obsidian.nvim",
-    version = "*", -- Always use latest stable release
+    version = "*",
     lazy = true,
     event = { "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/ObsidianVault/**.md" },
     dependencies = {

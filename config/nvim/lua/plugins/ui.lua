@@ -5,6 +5,7 @@ end
 
 
 return {
+  -- COLORSCHEMES
   {
     "folke/tokyonight.nvim",
   },
@@ -17,16 +18,7 @@ return {
       vim.cmd.colorscheme "gruvbox"
     end
   },
-  {
-    "sphamba/smear-cursor.nvim",
-    opts = {
-      cursor_color = "#d3cdc3",
-      normal_bg = "#282828",
-      smear_between_buffers = true,
-      smear_between_neighbor_lines = true,
-      legacy_computing_symbols_support = false,
-    },
-  },
+  -- STATUS LINE
   {
     "nvim-lualine/lualine.nvim",
     opts = {
