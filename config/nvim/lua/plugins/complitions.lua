@@ -6,7 +6,7 @@ return {
     opts = {
       keymap = {
         preset = 'default',
-        ['<C-i>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
+        ['<C-i>'] = { function(cmp) cmp.show({ providers = { 'lsp' } }) end },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
