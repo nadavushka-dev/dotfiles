@@ -1,5 +1,14 @@
 return {
   {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy", -- Or `LspAttach`
+    priority = 1000,    -- needs to be loaded in first
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+      vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
+    end
+  },
+  {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
@@ -39,13 +48,6 @@ return {
       lsp.cssls.setup { capabilities = capabilities }
       lsp.jsonls.setup { capabilities = capabilities }
       lsp.bashls.setup { capabilities = capabilities }
-
-      vim.diagnostic.config({
-        virtual_text = {
-          spacing = 2,
-          wrap = true,
-        }
-      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
