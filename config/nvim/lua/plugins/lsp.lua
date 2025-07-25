@@ -48,12 +48,9 @@ return {
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "<leader>grr", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-      vim.keymap.set("n", "<leader>en", vim.diagnostic.goto_next)
-      vim.keymap.set("n", "<leader>ep", vim.diagnostic.goto_prev)
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+      vim.keymap.set("n", "<leader>ee", function() vim.diagnostic.setloclist() end, { desc = "Show diagnostic" })
       vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format, {})
       -- vim.keymap.set('n', '<leader>i', cmp.show, {})
 
