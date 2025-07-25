@@ -6,10 +6,10 @@ alias v=nvim
 alias up="brew update&&brew upgrade"
   
 # custom commands:
-alias aliases="v ~/dotfiles/zsh/aliases.zsh"
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
 alias vconf="v ~/dotfiles/config/nvim"
+alias zconf="v ~/dotfiles/zsh"
 alias qt="open -a qutebrowser"
 alias wttr="curl -s wttr.in/Tel%20Aviv"
 
