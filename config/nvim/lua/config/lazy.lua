@@ -21,15 +21,15 @@ require("lazy").setup({
     -- { import = "plugins" },
     --
     -- import your plugins file by file (more control)
+    require('plugins.lsp'),
+    require('plugins.treesitter'),
     require('plugins.complitions'),
     require('plugins.floater'),
     require('plugins.dap'),
     require('plugins.git'),
     require('plugins.live-server'),
-    require('plugins.lsp'),
     require('plugins.navigation'),
     require('plugins.obsidian'),
-    require('plugins.treesitter'),
     require('plugins.ui'),
 
   },
