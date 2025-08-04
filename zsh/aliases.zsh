@@ -14,14 +14,16 @@ alias qt="open -a qutebrowser"
 alias wttr="curl -s wttr.in/Tel%20Aviv"
 
 # eza aliasses:
+alias ld="eza --icons -laD"
+alias lf="eza --icons -laf"
 alias ls="eza --icons"
 alias ll="eza -la --icons"
 alias la="eza -a --icons"
 alias ls1="eza --icons --oneline"
 
 # dir paths aliasses:
-alias nb="cd ~/code/personal"
-alias dt="cd ~/dotfiles"
+# alias nb="cd ~/code/personal"
+# alias dt="cd ~/dotfiles"
 
 # git aliasses:
 alias sc="lazygit"
