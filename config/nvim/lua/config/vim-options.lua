@@ -3,7 +3,6 @@ vim.g.maplocalleader = ","
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 vim.opt.cmdheight = 0
 
@@ -11,6 +10,10 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+vim.opt.colorcolumn = "130"
 
 -- Initialize the variable to store the last command
 vim.g.last_command = ""
