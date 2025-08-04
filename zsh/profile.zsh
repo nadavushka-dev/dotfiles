@@ -26,3 +26,4 @@ export LDFLAGS="-L$(brew --prefix llvm)/lib"
 # export CGO_CXXFLAGS="~/Library/Containers/com.isaacmarovitz.Whisky/Bottles/12D0AF5A-05C1-4395-98BE-86168501731A/dosdevices/z:/opt/homebrew/include/leptonica ~/Library/Containers/com.isaacmarovitz.Whisky/Bottles/12D0AF5A-05C1-4395-98BE-86168501731A/dosdevices/z:/opt/homebrew/include/tesseract"
 export CGO_CXXFLAGS="-I\"~/Library/Containers/com.isaacmarovitz.Whisky/Bottles/12D0AF5A-05C1-4395-98BE-86168501731A/dosdevices/z:/opt/homebrew/include/leptonica\""
 export CGO_LDFLAGS="-L~/Library/Containers/com.isaacmarovitz.Whisky/Bottles/12D0AF5A-05C1-4395-98BE-86168501731A/dosdevices/z:/opt/homebrew/lib"
+
