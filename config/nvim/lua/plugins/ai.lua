@@ -1,0 +1,5 @@
+return {
+	{
+		"yetone/avante.nvim",
+	},
+}
