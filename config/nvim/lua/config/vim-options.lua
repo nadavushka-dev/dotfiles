@@ -23,5 +23,5 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
   callback = function()
     -- Capture the last command line input
     vim.g.last_command = vim.fn.getcmdline()
-  end
+  end,
 })
