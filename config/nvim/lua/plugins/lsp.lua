@@ -1,8 +1,7 @@
 return {
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy",
-		priority = 1000,
+		event = "LspAttach",
 		config = function()
 			require("tiny-inline-diagnostic").setup()
 			vim.diagnostic.config({ virtual_text = false })
@@ -10,12 +9,16 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
+		cmd = "Mason",
+		build = ":MasonUpdate",
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "mason.nvim" },
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -27,31 +30,39 @@ return {
 					"jsonls",
 					"cssls",
 				},
+				automatic_installation = true,
 			})
 		end,
 	},
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = { "mason.nvim" },
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("mason-tool-installer").setup({
 				ensure_installed = {
-					"stylua", -- Lua formatter
-					"prettier", -- JS/TS/HTML/CSS/JSON formatter
-					"goimports", -- Go imports formatter
+					"stylua",
+					"prettier",
+					"goimports",
 				},
+				auto_update = false,
+				run_on_start = false,
 			})
 		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"saghen/blink.cmp",
+			"mason.nvim",
+			"mason-lspconfig.nvim",
 			{
 				"folke/lazydev.nvim",
 				ft = "lua",
 				opts = {
 					library = {
-						{ path = "${3rd}/luv/library", words = { "vim%.uv" } }, -- Fixed typo
+						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 					},
 				},
 			},
@@ -69,22 +80,34 @@ return {
 			lsp.jsonls.setup({ capabilities = capabilities })
 			lsp.bashls.setup({ capabilities = capabilities })
 
-			-- LSP Keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<leader>ee", function()
-				vim.diagnostic.setloclist()
-			end, { desc = "Show diagnostic" })
+			-- LSP Keymaps (set on LspAttach for better performance)
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					local opts = { buffer = ev.buf }
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+					vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+					vim.keymap.set("n", "<leader>ee", vim.diagnostic.setloclist, { desc = "Show diagnostic" })
+				end,
+			})
 		end,
 	},
 	{
 		"stevearc/conform.nvim",
-		lazy = false,
-		priority = 100,
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				"<leader>fd",
+				function()
+					require("conform").format({ async = true, lsp_fallback = true })
+				end,
+				desc = "Format document",
+			},
+		},
 		config = function()
 			local conform = require("conform")
-			_G.conform = conform
 			conform.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
@@ -102,14 +125,9 @@ return {
 				},
 				format_on_save = {
 					timeout_ms = 500,
-					lsp_fallback = true, -- Use LSP formatting if conform formatter unavailable
+					lsp_fallback = true,
 				},
 			})
-
-			-- Manual format keymap
-			vim.keymap.set("n", "<leader>fd", function()
-				conform.format({ async = true, lsp_fallback = true })
-			end, { desc = "Format document" })
 		end,
 	},
 }

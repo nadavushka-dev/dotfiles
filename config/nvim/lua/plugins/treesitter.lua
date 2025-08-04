@@ -1,47 +1,74 @@
-return { {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  config = function()
-    local configs = require("nvim-treesitter.configs")
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    build = ':TSUpdate',
+    config = function()
+      local configs = require("nvim-treesitter.configs")
 
-    configs.setup({
-      ensure_installed = {
-        "html",
-        "javascript",
-        "typescript",
-        "c",
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-        "markdown",
-        "json"
-      },
-
-      highlight = { enable = true },
-      sync_install = false,
-      indent = { enable = true },
-    })
-  end
-},
+      configs.setup({
+        ensure_installed = {
+          "lua",
+          "vim",
+          "vimdoc",
+          "query",
+        },
+        auto_install = true,
+        sync_install = false,
+        ignore_install = {},
+        modules = {},
+        highlight = {
+          enable = true,
+          disable = function(lang, buf)
+            local max_filesize = 100 * 1024 -- 100 KB
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end,
+          additional_vim_regex_highlighting = false,
+        },
+        indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<C-space>",
+            node_incremental = "<C-space>",
+            scope_incremental = false,
+            node_decremental = "<bs>",
+          },
+        },
+      })
+    end
+  },
   {
     "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
     config = function()
       local configs = require('treesitter-context')
       configs.setup {
-        enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
-        multiwindow = false,      -- Enable multiwindow support.
-        max_lines = 1,            -- How many lines the window should span. Values <= 0 mean no limit.
-        min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+        enable = true,
+        multiwindow = false,
+        max_lines = 3,
+        min_window_height = 0,
         line_numbers = true,
-        multiline_threshold = 20, -- Maximum number of lines to show for a single context
-        trim_scope = 'outer',     -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-        mode = 'cursor',          -- Line used to calculate context. Choices: 'cursor', 'topline'
-        -- Separator between context and content. Should be a single character string, like '-'.
-        -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+        multiline_threshold = 20,
+        trim_scope = 'outer',
+        mode = 'cursor',
         separator = nil,
-        zindex = 20,     -- The Z-index of the context window
-        on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+        zindex = 20,
+        on_attach = function(buf)
+          -- Disable in very large files
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            return false
+          end
+          return true
+        end,
       }
     end
   }
