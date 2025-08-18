@@ -1,49 +1,104 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "space n", 
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "!editorIsOpen && !terminalFocus"
-    },
-    {
-        "key": "space f f", 
-        "command": "workbench.action.quickOpen",
-        "when": "!editorIsOpen && !terminalFocus"
-    },
-    {
-        "key": "space s f", 
-        "command": "workbench.action.openSettingsJson",
-        "when": "!editorIsOpen && !terminalFocus"
-    },
-    {
-        "key": "space k b", 
-        "command": "workbench.action.openGlobalKeybindingsFile",
-        "when": "!editorIsOpen && !terminalFocus"
-    },
-    {
-        "key": "space s c", 
-        "command": "workbench.view.scm",
-        "when": "!editorIsOpen && !terminalFocus"
-    },
-    {
-        "key": "space e x", 
-        "command": "workbench.view.explorer",
-        "when": "!editorIsOpen && !terminalFocus"
-     },
-     {
-        "key": "ctrl+h",
-        "command": "workbench.action.navigateLeft"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.navigateRight"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "workbench.action.navigateUp"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.navigateDown"
-    },
+  {
+    "key": "ctrl+shift+up",
+    "command": "workbench.action.terminal.resizePaneUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.terminal.resizePaneDown",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "sideBarFocus || panelFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.increaseViewSize",
+    "when": "sideBarFocus || panelFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.increaseViewWidth",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.decreaseViewWidth",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+up",
+    "command": "workbench.action.decreaseViewHeight",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.increaseViewHeight",
+    "when": "editorFocus"
+  },
+  {
+    "key": "space n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space f b",
+    "command": "workbench.action.showAllEditors",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space f g",
+    "command": "workbench.action.findInFiles",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space s f",
+    "command": "workbench.action.openSettingsJson",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space k b",
+    "command": "workbench.action.openGlobalKeybindingsFile",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space s c",
+    "command": "workbench.view.scm",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "space e x",
+    "command": "workbench.view.explorer",
+    "when": "!editorIsOpen && !terminalFocus && !sideBarFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+{
+  "key": "ctrl+i",
+  "command": "editor.action.triggerSuggest",
+  "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+}
 ]
