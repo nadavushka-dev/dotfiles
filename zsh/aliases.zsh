@@ -45,8 +45,8 @@ alias fm=y
 alias work="~/scripts/work-programs.sh"
 
 #tmux
-alias t="~/scripts/tmux_script.sh"
-alias tllm="~/scripts/tmux_llm_script.sh"
+alias t="~/scripts/tmux/tmux_script.sh"
+alias tllm="~/scripts/tmux/tmux_llm_script.sh"
 alias tls="tmux ls"
 alias tk="tmux kill-session && echo session killed"
 
