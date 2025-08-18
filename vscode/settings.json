@@ -1,65 +1,289 @@
 {
-    "workbench.startupEditor": "none",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Atom One Dark",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // WINDOW
+  "window.zoomLevel": 1,
+
+  // QUICKER ACTIONS
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // THEMES
+  "editor.fontFamily": "Courier New, monospace",
+  "editor.fontSize": 15,
+  "editor.fontWeight": "200",
+  "editor.lineHeight": 1.4,
+  "editor.letterSpacing": 0.1,
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "editor.rulers": [130, 131],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#808080"
+  },
+
+  // MINIMAL UI
+  "workbench.activityBar.location": "hidden",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "window.titleBarStyle": "native",
+  "workbench.startupEditor": "none",
+  "workbench.editor.showTabs": "single",
+  "workbench.tips.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.statusBar.visible": true,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.codeLens": false,
+  "explorer.decorations.badges": false,
+
+  // General Settings
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.ignoreRebaseWarning": true,
+
+  // Format Settings
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Vim Settings
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 8,
+  "vim.leader": "<Space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["leader", "t", "t"],
+    //   "commands": ["workbench.action.terminal.toggleTerminal"]
+    // },
+    {
+      "before": ["leader", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
     },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+    {
+      "before": ["leader", "f", "b"],
+      "commands": ["workbench.action.showAllEditors"]
     },
-    "explorer.confirmDelete": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["leader", "f", "g"],
+      "commands": ["workbench.action.findInFiles"]
     },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+    {
+      "before": ["leader", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
     },
-    
-    "editor.defaultFormatter": "vscode.html-language-features",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "before": ["leader", "q", "o"],
+      "commands": ["workbench.action.closeOtherEditors"]
     },
-    "window.zoomLevel": 1,
-    "git.enableSmartCommit": true, 
-    "editor.minimap.enabled": false,    
-    "editor.lineNumbers": "relative",
-    "editor.cursorSurroundingLines": 8,
-    "vim.leader": "<Space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {"before": ["leader", "f", "f"], "commands": ["workbench.action.quickOpen"]},
-        {"before": ["leader", "f", "d"], "commands": ["editor.action.formatDocument"]},
-        {"before": ["leader", "q", "o"], "commands": ["workbench.action.closeOtherEditors"]},
-        {"before": ["leader", "n"], "commands": ["workbench.action.toggleSidebarVisibility"]},
-        {"before": ["leader", "e", "n"], "commands": ["editor.action.marker.next"]}, 
-        {"before": ["leader", "e", "p"], "commands": ["editor.action.marker.prev"]},
-        {"before": ["leader", "g", "d"], "commands": ["editor.action.revealDefinition"]},
-        {"before": ["leader", "r", "g"], "commands": ["git.revealInExplorer"]},        
-        {"before": ["leader", "u", "s"], "commands": ["workbench.action.files.revert"]},
-        {"before": ["K"], "commands": ["editor.action.showDefinitionPreviewHover"]},
-        {"before": ["leader", "1"], "commands": ["workbench.action.openEditorAtIndex1"]},
-        {"before": ["leader", "2"], "commands": ["workbench.action.openEditorAtIndex2"]},
-        {"before": ["leader", "3"], "commands": ["workbench.action.openEditorAtIndex3"]},
-        {"before": ["leader", "4"], "commands": ["workbench.action.openEditorAtIndex4"]},
-        {"before": ["leader", ","], "commands": ["workbench.action.navigateBack"]},
-        {"before": ["leader", "."], "commands": ["workbench.action.navigateForward"]},
-        {"before": ["leader", "s", "f"], "commands": ["workbench.action.openSettingsJson"]},
-        {"before": ["leader", "k", "b"], "commands": ["workbench.action.openGlobalKeybindingsFile"]},
-        {"before": ["leader", "s", "c"], "commands": [ "workbench.view.scm"]},
-        {"before": ["leader", "e", "x"], "commands": [ "workbench.view.explorer"]},
-    ],
-    "vim.visualModeKeyBindings": [
-        {"before": ["<"], "commands": ["editor.action.outdentLines"]},
-        {"before": [">"], "commands": ["editor.action.indentLines"]},
-    ],
-    "vim.handleKeys": {
-        "<C-i>": false,
-        "<C-S-f>": false,
+    {
+      "before": ["leader", "n"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
-    "vim.useSystemClipboard": true,
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "before": ["leader", "e", "n"],
+      "commands": ["editor.action.marker.next"]
     },
+    {
+      "before": ["leader", "e", "p"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["leader", "f", "s"],
+      "commands": ["editor.toggleFold"]
+    },
+    {
+      "before": ["leader", "g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["leader", "g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["leader", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["leader", "u", "s"],
+      "commands": ["workbench.action.files.revert"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["leader", "1"],
+      "commands": ["workbench.action.openEditorAtIndex1"]
+    },
+    {
+      "before": ["leader", "2"],
+      "commands": ["workbench.action.openEditorAtIndex2"]
+    },
+    {
+      "before": ["leader", "3"],
+      "commands": ["workbench.action.openEditorAtIndex3"]
+    },
+    {
+      "before": ["leader", "4"],
+      "commands": ["workbench.action.openEditorAtIndex4"]
+    },
+    {
+      "before": ["leader", "5"],
+      "commands": ["workbench.action.openEditorAtIndex5"]
+    },
+    {
+      "before": ["leader", "6"],
+      "commands": ["workbench.action.openEditorAtIndex6"]
+    },
+    {
+      "before": ["leader", ","],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["leader", "."],
+      "commands": ["workbench.action.navigateForward"]
+    },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["leader", "s", "f"],
+      "commands": ["workbench.action.openSettingsJson"]
+    },
+    {
+      "before": ["leader", "k", "b"],
+      "commands": ["workbench.action.openGlobalKeybindingsFile"]
+    },
+    {
+      "before": ["leader", "s", "c"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["leader", "e", "x"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["leader", "y", "c"],
+      "commands": ["editor.action.clipboardCopyAction", "extension.vim_escape"]
+    },
+    {
+      "before": ["leader", "d", "d", "d"],
+      "commands": ["moveFileToTrash"]
+    },
+    {
+      "before": ["leader", "s", "v"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
+    {
+      "before": ["leader", "s", "k"],
+      "commands": [
+        "workbench.action.files.newUntitledFile",
+        "workbench.action.moveEditorToNextGroup",
+        "workbench.action.editor.changeLanguageMode"
+      ]
+    },
+    {
+      "before": ["leader", "y", "f"],
+      "after": ["^", "V", "f", "{", "%", "y"]
+    },
+    {
+      "before": ["leader", "v", "f"],
+      "after": ["^", "V", "f", "{", "%"]
+    },
+    {
+      "before": ["<up>"],
+      "commands": []
+    },
+    {
+      "before": ["<down>"],
+      "commands": []
+    },
+    {
+      "before": ["<left>"],
+      "commands": []
+    },
+    {
+      "before": ["<right>"],
+      "commands": []
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["leader", "f", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["leader", "y", "c"],
+      "commands": ["editor.action.clipboardCopyAction", "extension.vim_escape"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<up>"],
+      "commands": []
+    },
+    {
+      "before": ["<down>"],
+      "commands": []
+    },
+    {
+      "before": ["<left>"],
+      "commands": []
+    },
+    {
+      "before": ["<right>"],
+      "commands": []
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["C-y"],
+      "commands": ["acceptSelectedSuggestion"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-i>": false,
+    "<C-S-f>": false,
+    "<cmd+p>": false 
+  },
+  "vim.useSystemClipboard": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "search.useParentIgnoreFiles": true,
+  "search.exclude": {
+    "**/*.code-search": false
+  },
+
 }
