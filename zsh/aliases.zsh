@@ -50,6 +50,20 @@ alias tllm="~/scripts/tmux_llm_script.sh"
 alias tls="tmux ls"
 alias tk="tmux kill-session && echo session killed"
 
+# SSH
+alias sshs="sudo /opt/homebrew/opt/openssh/sbin/sshd -D -f /opt/homebrew/etc/ssh/sshd_config"
+alias sshp=start_ssh_server
+
+# Navigation:
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+
+start_ssh_server() {
+  local port="$1"
+  sudo /opt/homebrew/opt/openssh/sbin/sshd -D -p $port
+}
+
 fzfvi() {
   local fzfQ
   local fileName
