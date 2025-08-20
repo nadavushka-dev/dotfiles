@@ -6,10 +6,6 @@ end
 return {
 	-- COLORSCHEMES
 	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-	},
-	{
 		"morhetz/gruvbox",
 		lazy = false,
 		priority = 1000,
