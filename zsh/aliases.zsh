@@ -14,12 +14,13 @@ alias qt="open -a qutebrowser"
 alias wttr="curl -s wttr.in/Tel%20Aviv"
 
 # eza aliasses:
-alias ld="eza --icons -laD"
-alias lf="eza --icons -laf"
-alias ls="eza --icons"
-alias ll="eza -la --icons"
-alias la="eza -a --icons"
-alias ls1="eza --icons --oneline"
+alias ld="eza --icons always -laD"
+alias lf="eza --icons always -laf"
+alias ls="eza --icons always"
+alias ll="eza -la --icons always"
+alias la="eza -a --icons always"
+alias llaa="eza -a"
+alias ls1="eza --icons always --oneline"
 
 # dir paths aliasses:
 # alias nb="cd ~/code/personal"
