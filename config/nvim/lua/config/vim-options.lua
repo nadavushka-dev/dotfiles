@@ -4,7 +4,7 @@ vim.g.maplocalleader = ","
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
@@ -20,8 +20,8 @@ vim.g.last_command = ""
 --
 -- Autocommand to capture the last command
 vim.api.nvim_create_autocmd("CmdlineLeave", {
-  callback = function()
-    -- Capture the last command line input
-    vim.g.last_command = vim.fn.getcmdline()
-  end,
+	callback = function()
+		-- Capture the last command line input
+		vim.g.last_command = vim.fn.getcmdline()
+	end,
 })
