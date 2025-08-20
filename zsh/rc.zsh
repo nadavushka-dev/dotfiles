@@ -16,3 +16,6 @@ source_if_exists $DOTFILES/zsh/profile.zsh
 
 # bun completions
 [ -s "/Users/Nadavushka/.bun/_bun" ] && source "/Users/Nadavushka/.bun/_bun"
+
+fortune fortunes | cowsay
+
