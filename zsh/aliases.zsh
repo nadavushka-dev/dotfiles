@@ -11,7 +11,6 @@ alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian
 alias vconf="z ~/dotfiles/config/nvim && v ."
 alias zconf="v ~/dotfiles/zsh"
 alias qt="open -a qutebrowser"
-alias wttr="curl -s wttr.in/Tel%20Aviv"
 
 # eza aliasses:
 alias ld="eza --icons always -laD"
@@ -21,10 +20,6 @@ alias ll="eza -la --icons always"
 alias la="eza -a --icons always"
 alias llaa="eza -a"
 alias ls1="eza --icons always --oneline"
-
-# dir paths aliasses:
-# alias nb="cd ~/code/personal"
-# alias dt="cd ~/dotfiles"
 
 # git aliasses:
 alias sc="lazygit"
