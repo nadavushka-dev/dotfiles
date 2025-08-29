@@ -16,6 +16,8 @@ config.load_autoconfig()
 
 # Dark mode
 config.set("colors.webpage.darkmode.enabled", True)
+c.colors.webpage.preferred_color_scheme = 'dark'
+
 
 # Cookies
 config.set('content.cookies.accept', 'all', 'devtools://*')
@@ -79,10 +81,12 @@ c.session.lazy_restore = False
 
 config.set("content.autoplay", False)
 
+c.fonts.tabs.unselected = "12pt default_family"
+c.fonts.tabs.selected = "12pt default_family"
 # Colors
-c.colors.tabs.even.fg = "white"
+c.colors.tabs.even.fg = "darkblue"
 c.colors.tabs.selected.even.fg = "white"
-c.colors.tabs.odd.fg = "white"
+c.colors.tabs.odd.fg = "darkblue"
 c.colors.tabs.selected.odd.fg = "white"
 c.colors.tabs.selected.even.bg = "darkblue"
 c.colors.tabs.selected.odd.bg = "darkblue"
