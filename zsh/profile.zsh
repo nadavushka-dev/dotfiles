@@ -16,6 +16,8 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+export PATH=$PATH:$(go env GOPATH)/bin
+
 export NVM_DIR=~/.nvm
 export JAVA_HOME=$(/usr/libexec/java_home)
 
