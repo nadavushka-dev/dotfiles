@@ -1,4 +1,58 @@
 return {
+	{ "nvim-lua/plenary.nvim" },
+	{
+		"echasnovski/mini.files",
+		version = "*",
+		config = function()
+			local minifiles = require("mini.files")
+			minifiles.setup({
+				-- Customization of shown content
+				content = {
+					filter = nil, -- Predicate for which file system entries to show
+					prefix = nil, -- What prefix to show to the left of file system entry
+					sort = nil, -- In what order to show file system entries
+				},
+
+				-- Module mappings created only inside explorer
+				mappings = {
+					close = "q",
+					go_in = "l", -- Enter directory/open file
+					go_in_plus = "L", -- Enter directory and close parent
+					go_out = "h", -- Go to parent directory
+					go_out_plus = "H", -- Go to parent and close children
+					reset = "<BS>", -- Reset to entry under cursor
+					reveal_cwd = "@", -- Reveal current working directory
+					show_help = "g?", -- Show help
+					synchronize = "=", -- Synchronize file system with current state
+					trim_left = "<", -- Trim to the left (remove columns)
+					trim_right = ">", -- Trim to the right (remove columns)
+				},
+
+				-- General options
+				options = {
+					permanent_delete = true, -- Whether to delete permanently or move to trash
+					use_as_default_explorer = false, -- Whether to use as default file explorer
+				},
+
+				-- Customization of explorer windows
+				windows = {
+					max_number = math.huge, -- Maximum number of windows to show side by side
+					preview = false, -- Whether to show preview of file/directory under cursor
+					width_focus = 25, -- Width of focused window
+					width_nofocus = 15, -- Width of non-focused window
+					width_preview = 25, -- Width of preview window
+				},
+			})
+
+			vim.keymap.set("n", "-", function()
+				minifiles.open(vim.api.nvim_buf_get_name(0))
+			end, { desc = "Open mini.files with current file" })
+
+			vim.keymap.set("n", "<leader><leader>-", function()
+				minifiles.open(vim.fn.getcwd())
+			end, { desc = "Open mini.files at cwd" })
+		end,
+	},
 	-- OIL
 	{
 		"stevearc/oil.nvim",
@@ -27,20 +81,38 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-			vim.keymap.set("n", "<leader><leader>-", function()
+			vim.api.nvim_create_user_command("Ex", function()
+				oil.open()
+			end, {
+				desc = "Open Oil file manager",
+				nargs = "?", -- Optional argument
+			})
+
+			vim.api.nvim_create_user_command("Sex", function()
 				oil.toggle_float()
-			end)
+			end, {
+				desc = "Open Oil file manager",
+				nargs = "?", -- Optional argument
+			})
 		end,
 	},
 	-- TELESCOPE
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
+			local actions = require("telescope.actions")
 			require("telescope").setup({
 				defaults = {
+					mappings = {
+						i = {
+							["<C-d>"] = actions.delete_buffer,
+						},
+						n = {
+							["<C-d>"] = actions.delete_buffer,
+							["dd"] = actions.delete_buffer,
+						},
+					},
 					previewer = true,
 					preview = {
 						hide_on_startup = false,
@@ -67,7 +139,6 @@ return {
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local harpoon = require("harpoon")
 			harpoon.setup()

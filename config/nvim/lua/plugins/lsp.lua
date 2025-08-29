@@ -1,7 +1,28 @@
 return {
+
+	{
+		"saghen/blink.cmp",
+		dependencies = "rafamadriz/friendly-snippets",
+		version = "*",
+		opts = {
+			keymap = {
+				preset = "default",
+				["<C-i>"] = {
+					function(cmp)
+						cmp.show({ providers = { "lsp" } })
+					end,
+				},
+			},
+			appearance = {
+				use_nvim_cmp_as_default = true,
+				nerd_font_variant = "mono",
+			},
+			signature = { enabled = true },
+		},
+	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "LspAttach",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("tiny-inline-diagnostic").setup()
 			vim.diagnostic.config({ virtual_text = false })
@@ -20,6 +41,9 @@ return {
 		dependencies = { "mason.nvim" },
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
+			local cmp = require("blink.cmp")
+			local capabilities = cmp.get_lsp_capabilities()
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
@@ -29,8 +53,16 @@ return {
 					"bashls",
 					"jsonls",
 					"cssls",
+					"dockerls",
 				},
 				automatic_installation = true,
+				handlers = {
+					function(server_name)
+						require("lspconfig")[server_name].setup({
+							capabilities = capabilities,
+						})
+					end,
+				},
 			})
 		end,
 	},
@@ -68,18 +100,6 @@ return {
 			},
 		},
 		config = function()
-			local cmp = require("blink.cmp")
-			local capabilities = cmp.get_lsp_capabilities()
-			local lsp = require("lspconfig")
-
-			lsp.lua_ls.setup({ capabilities = capabilities })
-			lsp.ts_ls.setup({ capabilities = capabilities })
-			lsp.html.setup({ capabilities = capabilities })
-			lsp.gopls.setup({ capabilities = capabilities })
-			lsp.cssls.setup({ capabilities = capabilities })
-			lsp.jsonls.setup({ capabilities = capabilities })
-			lsp.bashls.setup({ capabilities = capabilities })
-
 			-- LSP Keymaps (set on LspAttach for better performance)
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -88,7 +108,9 @@ return {
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-					vim.keymap.set("n", "<leader>ee", vim.diagnostic.setloclist, { desc = "Show diagnostic" })
+					vim.keymap.set("n", "<leader>eq", vim.diagnostic.setloclist, { desc = "Show diagnostic" })
+					vim.keymap.set("n", "<leader>ep", vim.diagnostic.goto_prev, {})
+					vim.keymap.set("n", "<leader>en", vim.diagnostic.goto_next, {})
 				end,
 			})
 		end,
@@ -121,7 +143,6 @@ return {
 					scss = { "prettier" },
 					json = { "prettier" },
 					yaml = { "prettier" },
-					markdown = { "prettier" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
