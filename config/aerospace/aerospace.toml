@@ -31,8 +31,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 
-# Mouse on focus
-# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# Mouse on focus on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # on-focus-changed = "move-mouse window-lazy-center"
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
@@ -177,7 +176,7 @@ if.app-id = 'net.whatsapp.WhatsApp'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
+if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]

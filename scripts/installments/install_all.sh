@@ -4,7 +4,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 scripts=(
     "packageManager.sh"
-    "kitty.sh"
+    # "kitty.sh"
+    "wezterm.sh"
     "nvim.sh"
     "tmux.sh"
     "raycast.sh"
