@@ -11,6 +11,7 @@ alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian
 alias vconf="z ~/dotfiles/config/nvim && v ."
 alias zconf="v ~/dotfiles/zsh"
 alias qt="open -a qutebrowser"
+alias tt="gtypist"
 
 # eza aliasses:
 alias ld="eza --icons always -laD"
@@ -36,9 +37,6 @@ alias gg='git log --graph --oneline'
 alias gs='git status'
 
 alias fm=y
-
-# scripts aliasses:
-alias work="~/scripts/work-programs.sh"
 
 #tmux
 alias t="~/scripts/tmux/tmux_script.sh"
