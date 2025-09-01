@@ -66,7 +66,7 @@ config.set('content.local_content_can_access_file_urls', False,
 
 # Defaults
 # c.url.start_pages = ["https://www.google.com/"]
-c.url.start_pages = ["https://www.reddit.com/?feed=home"]
+c.url.start_pages = ["https://t3.chat/"]
 c.url.searchengines = {
     "DEFAULT": "https://www.duckduckgo.com/search?q={}",
     "yt": "https://www.youtube.com/search?q={}"
