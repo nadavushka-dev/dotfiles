@@ -6,28 +6,6 @@ return {
 		config = function()
 			local minifiles = require("mini.files")
 			minifiles.setup({
-				-- Customization of shown content
-				content = {
-					filter = nil, -- Predicate for which file system entries to show
-					prefix = nil, -- What prefix to show to the left of file system entry
-					sort = nil, -- In what order to show file system entries
-				},
-
-				-- Module mappings created only inside explorer
-				mappings = {
-					close = "q",
-					go_in = "l", -- Enter directory/open file
-					go_in_plus = "L", -- Enter directory and close parent
-					go_out = "h", -- Go to parent directory
-					go_out_plus = "H", -- Go to parent and close children
-					reset = "<BS>", -- Reset to entry under cursor
-					reveal_cwd = "@", -- Reveal current working directory
-					show_help = "g?", -- Show help
-					synchronize = "=", -- Synchronize file system with current state
-					trim_left = "<", -- Trim to the left (remove columns)
-					trim_right = ">", -- Trim to the right (remove columns)
-				},
-
 				-- General options
 				options = {
 					permanent_delete = true, -- Whether to delete permanently or move to trash
@@ -51,6 +29,20 @@ return {
 			vim.keymap.set("n", "<leader><leader>-", function()
 				minifiles.open(vim.fn.getcwd())
 			end, { desc = "Open mini.files at cwd" })
+		end,
+	},
+	{
+		"echasnovski/mini.pick",
+		version = "*",
+		enabled = false,
+		config = function()
+			local minipick = require("mini.pick")
+			minipick.setup()
+
+			vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", { desc = "Pick files" })
+			vim.keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<cr>", { desc = "Pick live grep" })
+			vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "Pick buffers" })
+			vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", { desc = "Pick help" })
 		end,
 	},
 	-- OIL
@@ -99,7 +91,7 @@ return {
 	-- TELESCOPE
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		enabled = true,
 		config = function()
 			local actions = require("telescope.actions")
 			require("telescope").setup({
