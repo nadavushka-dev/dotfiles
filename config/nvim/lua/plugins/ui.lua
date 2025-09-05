@@ -78,6 +78,8 @@ return {
 					"json",
 					"html",
 					"css",
+					"markdown",
+					"markdown_inline",
 				},
 				auto_install = true,
 				sync_install = false,
@@ -95,6 +97,9 @@ return {
 					additional_vim_regex_highlighting = false,
 				},
 				indent = { enable = true },
+				folds = {
+					enable = true,
+				},
 				incremental_selection = {
 					enable = true,
 					keymaps = {
@@ -111,6 +116,14 @@ return {
 				callback = function()
 					vim.opt_local.conceallevel = 2
 					vim.opt_local.concealcursor = "nc" -- Hide in normal/command mode, show in insert
+
+					-- --- START OF NEW/MODIFIED LINES ---
+					vim.opt_local.foldmethod = "expr" -- Explicitly set foldmethod to expr
+					vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Explicitly set foldexpr to Treesitter's
+					vim.opt_local.foldenable = true -- Ensure folding is enabled for this buffer
+					vim.opt_local.foldcolumn = "1" -- Show a fold column
+					vim.opt_local.foldlevel = 2 -- Set default open level (adjust to your preference)
+					-- --- END OF NEW/MODIFIED LINES ---
 				end,
 			})
 		end, -- Set conceallevel for markdown files (fixes Obsidian warning)
