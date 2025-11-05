@@ -93,10 +93,18 @@ return {
 					mappings = {
 						i = {
 							["<C-d>"] = actions.delete_buffer,
+							["<ScrollWheelDown>"] = false,
+							["<ScrollWheelUp>"] = false,
+							["<LeftMouse>"] = false,
+							["<RightMouse>"] = false,
 						},
 						n = {
 							["<C-d>"] = actions.delete_buffer,
 							["dd"] = actions.delete_buffer,
+							["<ScrollWheelDown>"] = false,
+							["<ScrollWheelUp>"] = false,
+							["<LeftMouse>"] = false,
+							["<RightMouse>"] = false,
 						},
 					},
 					previewer = true,
