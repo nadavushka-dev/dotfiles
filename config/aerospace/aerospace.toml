@@ -180,11 +180,11 @@ if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
+if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
+if.app-id = 'com.duckduckgo.macos.browser'
 run = "move-node-to-workspace 3"
 
 [[on-window-detected]]
