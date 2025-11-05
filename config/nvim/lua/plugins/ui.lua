@@ -74,6 +74,7 @@ return {
 					"go",
 					"typescript",
 					"javascript",
+					"bash",
 					"tsx",
 					"json",
 					"html",
@@ -93,8 +94,11 @@ return {
 						if ok and stats and stats.size > max_filesize then
 							return true
 						end
+						if lang == "zsh" then
+							return true
+						end
 					end,
-					additional_vim_regex_highlighting = false,
+					additional_vim_regex_highlighting = { "zsh" },
 				},
 				indent = { enable = true },
 				folds = {
@@ -110,6 +114,7 @@ return {
 					},
 				},
 			})
+
 			vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 				pattern = { "*.md", "*.markdown" },
 				group = vim.api.nvim_create_augroup("MarkdownConceal", { clear = true }),
