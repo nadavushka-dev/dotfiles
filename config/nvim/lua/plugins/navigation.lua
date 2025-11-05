@@ -22,11 +22,7 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "-", function()
-				minifiles.open(vim.api.nvim_buf_get_name(0))
-			end, { desc = "Open mini.files with current file" })
-
-			vim.keymap.set("n", "<leader><leader>-", function()
+			vim.api.nvim_create_user_command("Ex", function()
 				minifiles.open(vim.fn.getcwd())
 			end, { desc = "Open mini.files at cwd" })
 		end,
@@ -73,18 +69,16 @@ return {
 				},
 			})
 
-			vim.api.nvim_create_user_command("Ex", function()
+			vim.keymap.set("n", "<leader><leader>-", function()
 				oil.open()
 			end, {
 				desc = "Open Oil file manager",
-				nargs = "?", -- Optional argument
 			})
 
-			vim.api.nvim_create_user_command("Sex", function()
+			vim.keymap.set("n", "-", function()
 				oil.toggle_float()
 			end, {
 				desc = "Open Oil file manager",
-				nargs = "?", -- Optional argument
 			})
 		end,
 	},
