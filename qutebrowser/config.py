@@ -66,9 +66,9 @@ config.set('content.local_content_can_access_file_urls', False,
 
 # Defaults
 # c.url.start_pages = ["https://www.google.com/"]
-c.url.start_pages = ["https://t3.chat/"]
+c.url.start_pages = ["qute://bookmarks/"]
 c.url.searchengines = {
-    "DEFAULT": "https://www.duckduckgo.com/search?q={}",
+    "DEFAULT": "https://unduck.link?q={}",
     "yt": "https://www.youtube.com/search?q={}"
 }
 c.tabs.show = "multiple"

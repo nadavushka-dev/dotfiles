@@ -143,6 +143,8 @@ return {
 					scss = { "prettier" },
 					json = { "prettier" },
 					yaml = { "prettier" },
+					bash = { "beautysh" },
+					zsh = { "beautysh" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
