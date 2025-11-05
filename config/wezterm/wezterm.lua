@@ -19,6 +19,13 @@ config.cell_width = 1.0
 config.line_height = 1.0
 
 config.color_scheme = "Gruvbox Material (Gogh)"
+
+config.colors = {
+	cursor_bg = "#a190b0", -- Muted Lavender
+	cursor_fg = "#282828", -- Gruvbox Background
+	cursor_border = "#a190b0",
+}
+
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
