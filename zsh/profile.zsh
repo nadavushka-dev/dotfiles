@@ -24,3 +24,9 @@ export NVM_DIR=~/.nvm
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PYTHON=/opt/homebrew/opt/python@3.11/bin/python3
+
+export PATH=$PATH:~/code/projects/terminal/initiator
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh --disable-up-arrow)"
