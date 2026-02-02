@@ -4,11 +4,11 @@ alias v=nvim
 
 # brew
 alias up="brew update&&brew upgrade"
-  
+
 # custom commands:
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
-alias vconf="z ~/dotfiles/config/nvim && v ."
+alias vconf="z ~/code/nvim_repo/ && v ."
 alias zconf="v ~/dotfiles/zsh"
 alias qt="open -a qutebrowser"
 alias tt="gtypist"
@@ -36,8 +36,6 @@ alias gl='git log --oneline'
 alias gg='git log --graph --oneline'
 alias gs='git status'
 
-alias fm=y
-
 #tmux
 alias t="~/scripts/tmux/tmux_script.sh"
 alias tllm="~/scripts/tmux/tmux_llm_script.sh"
@@ -47,47 +45,69 @@ alias tk="tmux kill-session && echo session killed"
 # SSH
 alias sshs="sudo /opt/homebrew/opt/openssh/sbin/sshd -D -f /opt/homebrew/etc/ssh/sshd_config"
 alias sshp=start_ssh_server
+alias vps="~/scripts/ssh/vps-connection.sh"
 
 # Navigation:
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
 
+#OpenCode
+alias ocode="opencode --agent plan"
+
+# ------------- WORK RELATEDD ALIASES START -------------
+SUBMODULE_PATH="submodules/sp-client-common-lib"
+
+alias grs="git reset $SUBMODULE_PATH"
+alias gpp="cd $SUBMODULE_PATH && git pull && cd ../.. && git pull"
+alias gPp="cd $SUBMODULE_PATH && git push && cd ../.. && git push --no-verify"
+alias gbp=git_project_checkout
+alias gbnp=git_project_checkout_new_branch
+alias sub="cd $SUBMODULE_PATH"
+
+function git_project_checkout() {
+    branch=$1;
+    git checkout "$branch" &&
+    cd $SUBMODULE_PATH &&
+    git checkout $branch &&
+    cd ../..
+}
+
+function git_project_checkout_new_branch() {
+    branch=$1;
+    git checkout -b "$branch" &&
+    cd $SUBMODULE_PATH &&
+    git checkout -b $branch &&
+    cd ../..
+}
+#------------- WORK RELATEDD ALIASES ENDS -------------
+
 start_ssh_server() {
-  local port="$1"
-  sudo /opt/homebrew/opt/openssh/sbin/sshd -D -p $port
+    local port="$1"
+    sudo /opt/homebrew/opt/openssh/sbin/sshd -D -p $port
 }
 
 fzfvi() {
-  local fzfQ
-  local fileName
-  local initialQuery="$1"
+    local fzfQ
+    local fileName
+    local initialQuery="$1"
 
-  # Define the fzf command with options and an initial query if provided
-  if [ -n "$initialQuery" ]; then
-    fzfQ="fzf --height 40% --reverse --border=double --tmux --preview='head -10 {}' --exit-0 --query='$initialQuery'"
-  else
-    fzfQ="fzf --height 40% --reverse --border=double --tmux --preview='head -10 {}' --exit-0"
-  fi
-  
-  # Get the selected file name from fzf
-  fileName=$(eval $fzfQ)
-  
-  # Check if a file was selected
-  if [ -n "$fileName" ]; then
-    # Open the selected file in vi
-    vi "$fileName"
-  fi
+    # Define the fzf command with options and an initial query if provided
+    if [ -n "$initialQuery" ]; then
+        fzfQ="fzf --height 40% --reverse --border=double --tmux --preview='head -10 {}' --exit-0 --query='$initialQuery'"
+    else
+        fzfQ="fzf --height 40% --reverse --border=double --tmux --preview='head -10 {}' --exit-0"
+    fi
+
+    # Get the selected file name from fzf
+    fileName=$(eval $fzfQ)
+
+    # Check if a file was selected
+    if [ -n "$fileName" ]; then
+        # Open the selected file in vi
+        v "$fileName"
+    fi
 }
 
 # Create an alias for the function
 alias ff="fzfvi"
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
