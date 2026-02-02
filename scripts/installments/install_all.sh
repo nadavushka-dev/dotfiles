@@ -11,8 +11,12 @@ scripts=(
     "raycast.sh"
     "btop.sh"
     "aerospace.sh"
-    "yazi.sh"
-    "general.sh"
+    # "yazi.sh"
+    "fzf.sh"
+    "tldr.sh"
+    "mailsy.sh"
+    "atuin.sh"
+    "jq.sh"
 )
 
 for script in "${scripts[@]}"; do
