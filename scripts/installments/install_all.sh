@@ -17,6 +17,8 @@ scripts=(
     "mailsy.sh"
     "atuin.sh"
     "jq.sh"
+    "lazydocker.sh"
+    "lazygit.sh"
 )
 
 for script in "${scripts[@]}"; do
