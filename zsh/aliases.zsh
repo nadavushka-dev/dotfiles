@@ -55,6 +55,9 @@ alias ....="cd ../../../"
 #OpenCode
 alias ocode="opencode --agent plan"
 
+# Docker
+alias lzd="lazydocker"
+
 # ------------- WORK RELATEDD ALIASES START -------------
 SUBMODULE_PATH="submodules/sp-client-common-lib"
 
