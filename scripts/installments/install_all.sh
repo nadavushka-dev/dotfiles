@@ -19,6 +19,7 @@ scripts=(
     "jq.sh"
     "lazydocker.sh"
     "lazygit.sh"
+    "glow.sh"
 )
 
 for script in "${scripts[@]}"; do
