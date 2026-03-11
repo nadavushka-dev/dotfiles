@@ -12,6 +12,7 @@ alias vconf="z ~/code/nvim_repo/ && v ."
 alias zconf="v ~/dotfiles/zsh"
 alias qt="open -a qutebrowser"
 alias tt="gtypist"
+alias drawio='open -a "draw.io"'
 
 # eza aliasses:
 alias ld="eza --icons always -laD"
