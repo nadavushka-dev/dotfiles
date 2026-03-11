@@ -4,15 +4,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 scripts=(
     "packageManager.sh"
-    # "kitty.sh"
     "wezterm.sh"
+    "fzf.sh"
     "nvim.sh"
     "tmux.sh"
-    "raycast.sh"
     "btop.sh"
-    "aerospace.sh"
-    # "yazi.sh"
-    "fzf.sh"
     "tldr.sh"
     "mailsy.sh"
     "atuin.sh"
@@ -20,6 +16,10 @@ scripts=(
     "lazydocker.sh"
     "lazygit.sh"
     "glow.sh"
+    "raycast.sh"
+    "aerospace.sh"
+    # "kitty.sh"
+    # "yazi.sh"
 )
 
 for script in "${scripts[@]}"; do
