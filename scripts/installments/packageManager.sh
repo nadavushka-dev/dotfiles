@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Check for Homebrew and install if it's not installed
 if ! command -v brew &> /dev/null; then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -18,8 +18,6 @@ scripts=(
     "glow.sh"
     "raycast.sh"
     "aerospace.sh"
-    # "kitty.sh"
-    # "yazi.sh"
 )
 
 for script in "${scripts[@]}"; do
