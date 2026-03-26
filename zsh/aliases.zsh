@@ -9,19 +9,14 @@ alias up="brew update&&brew upgrade"
 alias so="source ~/.zshrc && echo '.zshrc sourced successfuly'"
 alias notes="v ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ObsidianVault"
 alias vconf="z ~/code/nvim_repo/ && v ."
-alias zconf="v ~/dotfiles/zsh"
+alias zconf="v ~/personal/dotfiles/zsh"
 alias qt="open -a qutebrowser"
 alias tt="gtypist"
 alias drawio='open -a "draw.io"'
 
 # eza aliasses:
-alias ld="eza --icons always -laD"
-alias lf="eza --icons always -laf"
-alias ls="eza --icons always"
-alias ll="eza -la --icons always"
-alias la="eza -a --icons always"
-alias llaa="eza -a"
-alias ls1="eza --icons always --oneline"
+alias ls="eza -l --icons always"
+alias lsa="eza -la --icons always"
 
 # git aliasses:
 alias sc="lazygit"
@@ -38,15 +33,15 @@ alias gg='git log --graph --oneline'
 alias gs='git status'
 
 #tmux
-alias t="~/scripts/tmux/tmux_script.sh"
-alias tllm="~/scripts/tmux/tmux_llm_script.sh"
+alias t="~/personal/dotfiles/scripts/tmux/tmux_script.sh"
+alias tllm="~/personal/dotfiles/scripts/tmux/tmux_llm_script.sh"
 alias tls="tmux ls"
 alias tk="tmux kill-session && echo session killed"
 
 # SSH
 alias sshs="sudo /opt/homebrew/opt/openssh/sbin/sshd -D -f /opt/homebrew/etc/ssh/sshd_config"
 alias sshp=start_ssh_server
-alias vps="~/scripts/ssh/vps-connection.sh"
+alias vps="~/personal/vps/connect.sh"
 
 # Navigation:
 alias ..="cd ../"

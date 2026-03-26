@@ -1,4 +1,4 @@
-export DOTFILES=~/dotfiles
+export DOTFILES=~/personal/dotfiles
 
 source_if_exists () {
     if test -r "$1"; then
