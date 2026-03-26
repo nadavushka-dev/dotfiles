@@ -6,6 +6,11 @@ scripts=(
     "packageManager.sh"
     "wezterm.sh"
     "fzf.sh"
+    "eza.sh"
+    "bat.sh"
+    "nvm.sh"
+    "go.sh"
+    "zoxide.sh"
     "nvim.sh"
     "tmux.sh"
     "btop.sh"
@@ -18,6 +23,9 @@ scripts=(
     "glow.sh"
     "raycast.sh"
     "aerospace.sh"
+    "whatsapp.sh
+    "chrome.sh
+    "spotify.sh
 )
 
 for script in "${scripts[@]}"; do

@@ -3,7 +3,7 @@
 folders=()
 
 # Loop through directories in the current path
-for d in ~/dotfiles/config/*/; do
+for d in ~/personal/dotfiles/config/*/; do
   # Remove the trailing slash and add to the array
   folders+=("${d%/}")
 done

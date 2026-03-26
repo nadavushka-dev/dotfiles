@@ -9,7 +9,7 @@ uninstall_if_found aerospace
 
 echo " Installing aerospace..."
 
-if brew install aerospace; then 
+if brew install --cask nikitabobko/tap/aerospace; then 
   symlink_with_dirs ~/dotfiles/config/aerospace/ ~/.config/aerospace
   echo_ok " aerospace installation succeeded"
 
